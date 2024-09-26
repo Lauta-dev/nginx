@@ -12,13 +12,13 @@ jobs:
         uses: actions/checkout@v4.2.0
 
       - name: Docker auth
-        run: sudo docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_TOKEN }}
+        run:  docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_TOKEN }}
 
       - name: Build Image
-        run: sudo docker build -t webpage .
+        run:  docker build -t webpage .
 
       - name: Tag image
-        run: sudo docker tag webpage ${{ secrets.DOCKER_USERNAME }}/webpage:latest
+        run:  docker tag webpage ${{ secrets.DOCKER_USERNAME }}/webpage:latest
 
       - name: upload image to dockerhub
         if: success()
