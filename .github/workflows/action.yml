@@ -1,1 +1,12 @@
+name: push to render
 
+on:
+  - push
+
+jobs:
+  push-image:
+    runs-on: ubuntu-latest
+
+    steaps:
+      - name: ls
+        run: ls
